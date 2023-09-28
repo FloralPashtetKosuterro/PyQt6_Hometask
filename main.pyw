@@ -1,14 +1,33 @@
 from PyQt6 import QtWidgets
 import sys
 
+
 class MainTry(QtWidgets.QDialog):
     def secondprog(self):
         self.mylabel.setText("Вы купили 3 арбуза за 10 рублей. Инвестировав в пустоту, вы стали жертвой "
                              "кибершарлатана.")
+        self.mybth.setText('Связаться с продавцом')
+        self.mybth2.setText('Оставить отзыв')
+        self.mybth.clicked.connect(self.answer)
+        self.mybth2.clicked.connect(self.answer)
+
     def thirdprog(self):
         self.mylabel.setText('Вы купили один арбуз, но еврей был колдуном и в результате заставил купить два.'
-                             '\t\nПриходите ещё!')
+                             '\t\n Неясным способом эти арбузы свалились на вас. Спасибо за покупку!')
+        self.mybth.setText('Связаться с продавцом')
+        self.mybth2.setText('Оставить отзыв')
+        self.mybth.clicked.connect(self.answer)
+        self.mybth2.clicked.connect(self.answer)
 
+    def answer(self):
+        self.mylabel.setText('Автоответчик: Добрый вечер, это контора Васи Пупкина')
+        self.mybth.setText('Выключить программу')
+        self.mybth2.setText('Выключить программу')
+        self.mybth.clicked.connect(self.exitforme)
+        self.mybth2.clicked.connect(self.exitforme)
+
+    def exitforme(self):
+        exit()
 
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
