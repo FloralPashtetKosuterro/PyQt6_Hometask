@@ -3,11 +3,8 @@ import sys
 
 class MainTry(QtWidgets.QDialog):
     def secondprog(self):
-        self.secondlabel = QtWidgets.QLabel("Вы купили 3 арбуза за 10 рублей. Инвестировав в пустоту, вы стали жертвой "
-                                            "кибершарлатана.")
-        self.vvbox = QtWidgets.QVBoxLayout()
-        self.vvbox.addWidget(self.secondlabel)
-        self.setLayout(self.vvbox)
+        self.mylabel.setText("Вы купили 3 арбуза за 10 рублей. Инвестировав в пустоту, вы стали жертвой "
+                             "кибершарлатана.")
 
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
