@@ -1,6 +1,6 @@
-from PyQt6 import QtWidgets, QtCore
+from PyQt6 import QtWidgets
 from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QPixmap
+from PyQt6.QtGui import QPixmap, QIcon
 import sys
 
 from PyQt6.QtWidgets import QLabel
@@ -32,6 +32,7 @@ class MainTry(QtWidgets.QDialog):
 
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
+        self.setWindowIcon(QIcon('melonico.png'))
         self.mylabel = QtWidgets.QLabel("Приветствую! Это сетевая торговля арбузами.\n"
                                         "\tМеня зовут Изя Барабаш.\n "
                                         "1 арбуз = 3 рубля, 3 арбуза = 10 рублей")
