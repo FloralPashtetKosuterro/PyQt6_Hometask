@@ -23,11 +23,9 @@ class MainTry(QtWidgets.QDialog):
         self.mylabel.setText('Автоответчик: Добрый вечер, это контора Васи Пупкина')
         self.mybth.setText('Выключить программу')
         self.mybth2.setText('Выключить программу')
-        self.mybth.clicked.connect(self.exitforme)
-        self.mybth2.clicked.connect(self.exitforme)
+        self.mybth.clicked.connect(app.quit)
+        self.mybth2.clicked.connect(app.quit)
 
-    def exitforme(self):
-        exit()
 
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
