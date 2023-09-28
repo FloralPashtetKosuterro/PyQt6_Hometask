@@ -1,5 +1,9 @@
-from PyQt6 import QtWidgets
+from PyQt6 import QtWidgets, QtCore
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QPixmap
 import sys
+
+from PyQt6.QtWidgets import QLabel
 
 
 class MainTry(QtWidgets.QDialog):
@@ -26,7 +30,6 @@ class MainTry(QtWidgets.QDialog):
         self.mybth.clicked.connect(app.quit)
         self.mybth2.clicked.connect(app.quit)
 
-
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
         self.mylabel = QtWidgets.QLabel("Приветствую! Это сетевая торговля арбузами.\n"
@@ -35,7 +38,13 @@ class MainTry(QtWidgets.QDialog):
         self.mybth = QtWidgets.QPushButton("Купить один арбуз")
         self.mybth2 = QtWidgets.QPushButton("Купить три арбуза")
         self.vbox = QtWidgets.QVBoxLayout()
+        self.label = QLabel(self)
+        self.pixmap = QPixmap('melon.jpg')
+        self.label.setPixmap(self.pixmap)
+        self.mylabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.vbox.addWidget(self.mylabel)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.vbox.addWidget(self.label)
         self.vbox.addWidget(self.mybth)
         self.vbox.addWidget(self.mybth2)
         self.mybth.clicked.connect(self.thirdprog)
@@ -47,6 +56,6 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = MainTry()
     window.setWindowTitle("Сделано по учебнику")
-    window.resize(250, 70)
+    window.resize(300, 300)
     window.show()
     sys.exit(app.exec())
